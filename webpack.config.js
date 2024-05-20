@@ -3,17 +3,20 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
   mode: "development",
-  entry: "./src/index.ts",
+  entry: "./src/index.js",
 
   devtool: "inline-source-map",
   devServer: {
+    static: {
+      directory: path.join(__dirname, "assets"),
+    },
     watchFiles: ["src/**/*.html", "public/**/*"],
     port: 3000,
     hot: true,
   },
   plugins: [
     new HtmlWebpackPlugin({
-      title: "Development",
+      title: "Bryans Portfolio",
       template: "./src/index.html",
       filename: "index.html",
       inject: "body",
